@@ -1,15 +1,157 @@
-# "Node.js Tutorial - How to Build a Web Server"
 
-✅ [Check out my YouTube Channel with all of my tutorials](https://www.youtube.com/DaveGrayTeachesCode).
+# Express.js Web Server
 
-**Description:**
+A simple and structured **Express.js web server** project demonstrating routing, middleware, logging, serving static files, and basic REST API functionality.
 
-This repository shares the code applied during the Youtube tutorial. The tutorial is part of a [Node.js for Beginners Playlist](https://www.youtube.com/playlist?list=PL0Zuz27SZ-6PFkIxaJ6Xx_X46avTM1aYw) on my channel.  
+---
 
-[YouTube Tutorial](https://youtu.be/3ZAKY-CDKog) for this repository.
+## 🚀 Features
 
-I suggest completing my [8 hour JavaScript course tutorial video](https://youtu.be/EfAl9bwzVZk) if you are new to Javascript.
+- ✅ Express.js server setup  
+- ✅ Custom middleware  
+- ✅ Request & error logging  
+- ✅ Serving static HTML pages  
+- ✅ Routing with subdirectories  
+- ✅ JSON API responses  
+- ✅ Modular project structure  
 
-### Academic Honesty
+---
 
-**DO NOT COPY FOR AN ASSIGNMENT** - Avoid plagiargism and adhere to the spirit of this [Academic Honesty Policy](https://www.freecodecamp.org/news/academic-honesty-policy/).
+## 📁 Project Structure
+
+```
+
+tut06-expressjs/
+│
+├── public/               # Static assets (CSS, images, etc.)
+├── views/                # HTML pages served by the server
+├── data/                 # JSON/text data used by the app
+├── logs/                 # Request & error logs
+│   ├── eventLog.txt
+│   └── errLog.txt
+│
+├── middleware/           # Custom middleware
+│   ├── logEvents.js
+│   └── errorHandler.js
+│
+├── server.js             # Entry point of the application
+├── package.json
+└── .gitignore
+
+````
+
+---
+
+## 📦 Installation
+
+Clone the repository:
+
+```bash
+git clone https://github.com/<your-username>/<repo-name>.git
+cd <repo-name>
+````
+
+Install dependencies:
+
+```bash
+npm install
+```
+
+---
+
+## ▶️ Running the Server
+
+Start the development server:
+
+```bash
+npm start
+```
+
+Or manually:
+
+```bash
+node server.js
+```
+
+Server will run at:
+
+```
+http://localhost:3500
+```
+
+(If port is different in your code, adjust accordingly.)
+
+---
+
+## 🧩 API Endpoints (Examples)
+
+| Method | Endpoint  | Description                      |
+| ------ | --------- | -------------------------------- |
+| GET    | `/`       | Home page                        |
+| GET    | `/about`  | About page                       |
+| GET    | `/data`   | Returns JSON data                |
+| GET    | `/subdir` | Renders a subdirectory HTML page |
+
+(Add more endpoints if your project has them.)
+
+---
+
+## 📝 Logging
+
+This project uses a custom logger:
+
+* Every request is logged to `/logs/eventLog.txt`
+* Errors are logged to `/logs/errLog.txt`
+
+Middleware included:
+
+```js
+const logger = require('./middleware/logEvents');
+app.use(logger);
+```
+
+---
+
+## ⚠️ Error Handling
+
+Custom error handler middleware:
+
+```js
+const errorHandler = require('./middleware/errorHandler');
+app.use(errorHandler);
+```
+
+Ensures consistent error responses and proper logging.
+
+---
+
+## ✅ Dependencies
+
+Main packages:
+
+* **express**
+* **uuid** (if used)
+* **date-fns**
+
+Install manually if needed:
+
+```bash
+npm install express uuid date-fns
+```
+
+---
+
+## 📜 License
+
+This project is open source and available under the **MIT License**.
+
+---
+
+## 👤 Author
+
+**Vipanchi**
+GitHub: [https://github.com/vip23anchib](https://github.com/vip23anchib)
+
+```
+
+---
