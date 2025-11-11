@@ -40,7 +40,7 @@ app.use(express.json());// to handle json data
 //serve static files
 app.use(express.static(path.join(__dirname, 'public')));// to serve static files like css, images, js etc from public folder
 
-
+app.use('/subdir', require('./routes/subdir'));// to use the router defined in subdir.js for routes starting with /subdir
 
 
 
@@ -92,8 +92,18 @@ app.get(['/chain', '/chain.html'], [one, two, three]);
 
 
 
-app.get(/.*/, (req, res) => {
-  res.status(404).sendFile(path.join(__dirname, 'views', '404.html'));
+app.all(/.*/, (req, res) => {
+  res.status(404);
+  
+  if (req.accepts('html')) {
+    res.sendFile(path.join(__dirname, 'views', '404.html'));
+  }
+    else if (req.accepts('json')) {
+    res.json({ error: '404 Not Found' });
+  }
+  else {
+    res.type('txt').send('404 Not Found');
+  }
 });
 
 //global error handler middleware
